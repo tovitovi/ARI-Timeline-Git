@@ -38,7 +38,6 @@
         background-color: #F5F6FA;
         border-radius: 17px;
         height: max-content;
-        margin-bottom: 32px;
     }
 
 
@@ -95,7 +94,7 @@
         position: absolute;
     }
 
-    .active {
+    .active{
         background-color: #002856;
         color: white;
         border-radius: 17.5px;
@@ -105,7 +104,44 @@
     #myPills .nav-item:not(.layout-active) {
         display: none;
     }
-</style>
+
+    .hidden{
+        display: none;
+    }   
+
+
+    /* Media queries examples */
+    @media screen and (max-width: 425px){
+        .nav-item{
+            font-size: 8px;
+        }
+        .timeline-year{
+            font-size: 70px;
+        }
+    }
+
+    /* tablet version */
+    @media screen and (min-width: 426px) and (max-width: 768px){
+        .nav-item{
+            font-size: 10px;
+        }
+        .timeline-year{
+            font-size: 70px;
+        }
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 4000px){
+        .nav-item{
+            font-size: 12px;
+        }
+        .timeline-year{
+            font-size: 70px;
+        }
+    }
+   
+
+
+   </style>
 
 <head>
     <meta charset="UTF-8">
@@ -128,542 +164,21 @@
         <!-- Need help here with the javascript. Need to make arrows so that when they are clicked jumps to the next pill -->
         <div class="container" id="navigation">
             <div style="flex-grow: 0; display: flex;"><button
-                    style="border: none; background-color: white; display: flex;"><i
+                    style="border: none; background-color: white; display: flex;" id="chevron_left"><i
                         class="material-icons">chevron_left</i></button></div>
             <div class="members" style="flex-grow: 1;">
                 <ul class="nav nav-pills nav-fill" id="myPills">
-                    <li class="nav-item pill_one active">
-                        Eric Bouskila
-                    </li>
-                    <li class="nav-item pill_two">
-                        Marlene Windmiller
-                    </li>
-                    <li class="nav-item pill_three">
-                        Elizabeth Torres
-                    </li>
-                    <li class="nav-item pill_four">
-                        Jordan Mimoun
-                    </li>
-                    <li class="nav-item pill_five">
-                        Peter L. Harjes
-                    </li>
-                    <li class="nav-item pill_six">
-                        Ligia Braun
-                    </li>
-                    <li class="nav-item pill_seven">
-                        Lorenzo Marini
-                    </li>
+                    <!-- Here goes the new dynamically generated pills-->
                 </ul>
             </div>
 
             <div style="flex-grow: 0; display: flex;"><button
-                    style="border: none; background-color: white; display: flex;"><i
+                    style="border: none; background-color: white; display: flex;" id="chevron_right"><i
                         class="material-icons">chevron_right</i></button></div>
         </div>
 
-        <div class="container" id="timeline">
-            <div class="card-one abc">
-                <div class=" content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2024
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <!-- Need the line to fit the length of the content timeline. For some reason when I try to fix the height it completely dissapears-->
-                    <div class="line"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Forbes’ Top 100 Financial Security Professionals</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Forbes’ Best-in-State Financial Security Professionals</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-two abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2023
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Forbes’ Top 100 Financial Security Professionals</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Forbes’ Best-in-State Financial Security Professionals</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-three abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2022
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-four abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2021
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                    <div class="timeline-sixth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Life Quality Business Award</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-five abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2020
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-six abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2019
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 242px;"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                    <div class="timeline-sixth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Life Quality Business Award</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-seven abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2018
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 242px;"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                    <div class="timeline-sixth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Life Quality Business Award</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-eight abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2017
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 242px;"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                    <div class="timeline-sixth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Life Quality Business Award</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-nine abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2016
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 242px;"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                    <div class="timeline-sixth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Life Quality Business Award</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-ten abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2015
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 242px;"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                    <div class="timeline-sixth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Life Quality Business Award</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-eleven abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2014
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-twelve abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2013
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Chairman’s Council (Million Dollar Club)</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fifth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-twelve abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2012
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 160px;"></div>
-                    <div class="timeline-first-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">#1 National Life Premium Sales Leadership Award</span>
-                    </div>
-                    <div class="timeline-second-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">President’s Council</span>
-                    </div>
-                    <div class="timeline-third-container xyz">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Executive Club</span>
-                    </div>
-                    <div class="timeline-fourth-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-thirteen abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2011
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 38px;"></div>
-                    <div class="timeline-first-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Leader's Club</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-fourteen abc">
-                <div class="content-timeline-header">
-                    <div class="Ari-Logo">
-                        <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
-                    </div>
-                    <div class="timeline-year" style="font-weight: 700;">
-                        2002
-                    </div>
-                </div>
-                <div class=" container" id="content-timeline">
-                    <div class="line" style="height: 38px;"></div>
-                    <div class="timeline-first-container xyz" style="margin-bottom: 0;">
-                        <div class="circle"></div>
-                        <span class="timeline-text">Key to Miami Dade county</span>
-                    </div>
-                </div>
-            </div>
-
-
-
-
+        <div class="container" id="timeline" style="overflow: hidden;">
+            <!-- Here goes the new dynamically generated cards-->
         </div>
 
         <div class="button"> <button
@@ -676,109 +191,335 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-            </script>
+        </script>
 
-        <script>
+    <script>
 
-            // Object containing the devices and their respective sizes and pill counts
-            // Modify the sizes and pill counts as needed
-            const devices = {
-                "mobile-L": { size: 425, pills: 2 },
-                "tablet": { size: 768, pills: 5 },
-                "laptop": { size: 1024, pills: 8 },
-                "laptop-L": { size: 1440, pills: 8 },
-                "4k": { size: 2560, pills: 8 },
-                "8k": { size: 7680, pills: 8 }
-            };
+const people = [
+        {
+            name: "Eric Bouskila",
+            awardContent: [
+                {
+                    year: 2024,
+                    awards: [
+                        {name: 'Forbes’ Top 100 Financial Security Professionals'},
+                        {name: 'Forbes’ Best-in-State Financial Security Professionals'},
+                        {name: '#1 National Life Premium Sales Leadership Award'},
+                        {name: 'Executive Club'},
+                        {name: 'Leader\'s Club'}
+                    ]
+                },
+                {
+                    year: 2023,
+                    awards: [
+                        {name: 'Forbes’ Top 100 Financial Security Professionals'},
+                        {name: 'Forbes’ Best-in-State Financial Security Professionals'},
+                        {name: '#1 National Life Premium Sales Leadership Award'},
+                        {name: 'Executive Club'},
+                        {name: 'Leader\'s Club'}
+                    ]
+                },
+                {
+                    year: 2022,
+                    awards: [
+                        {name: '#1 National Life Premium Sales Leadership Award'},
+                        {name: 'Chairman’s Council (Million Dollar Club)'},
+                        {name: 'President’s Council'},
+                        {name: 'Executive Club'},
+                        {name: 'Leader\'s Club'}
+                    ]
+                },
+            ],
+        },
+        {
+            name: "Marlene Windmiller",
+            awardContent: [
+                {
+                    year: 2024,
+                    awards: [
+                        {name: 'Award for Marlene Windmiller'},                        
+                        {name: 'Award 2 for Marlene Windmiller'},                        
+                    ]
+                },                
+                {
+                    year: 2023,
+                    awards: [
+                        {name: 'Award for Marlene Windmiller'},                        
+                        {name: 'Award 2 for Marlene Windmiller'},                        
+                    ]
+                },                
+            ],
+        },
+        {
+            name: "Elizabeth Torres",
+            awardContent: [
+                {
+                    year: 2024,
+                    awards: [
+                        {name: 'Award for Elizabeth Torres'},                        
+                        {name: 'Award 2 for Elizabeth Torres'},                        
+                    ]
+                },                
+                {
+                    year: 2023,
+                    awards: [
+                        {name: 'Award for Elizabeth Torres'},                        
+                        {name: 'Award 2 for Elizabeth Torres'},                        
+                    ]
+                },                
+            ],
+        },
+        {
+            name: "Jordan Mimoun",
+            awardContent: [
+                {
+                    year: 2024,
+                    awards: [
+                        {name: 'Award for Jordan Mimoun'},                        
+                        {name: 'Award 2 for Jordan Mimoun'},                        
+                    ]
+                },                
+                {
+                    year: 2023,
+                    awards: [
+                        {name: 'Award for Jordan Mimoun'},                        
+                        {name: 'Award 2 for Jordan Mimoun'},                        
+                    ]
+                },                
+            ],
+        },
+        {
+            name: "peter L. Harjes",
+            awardContent: [
+                {
+                    year: 2024,
+                    awards: [
+                        {name: 'Award for peter L. Harjes'},                        
+                        {name: 'Award2 for peter L. Harjes'},                        
+                    ]
+                },                
+            ],
+        },
+        {
+            name: "Ligia Braun",
+            awardContent: [
+                {
+                    year: 2024,
+                    awards: [
+                        {name: 'Award for Ligia Braun'},                        
+                        {name: 'Award 3 for Ligia Braun'},                        
+                    ]
+                },                
+            ],
+        },
+        {
+            name: "Lorenzo Marini",
+            awardContent: [
+                {
+                    year: 2024,
+                    awards: [
+                        {name: 'Award for Lorenzo Marini'},
+                        {name: 'Award 4 for Lorenzo Marini'},
 
-            // Function to get the current width of the device's viewport
-            const getDeviceWidth = () => window.innerWidth;
+                    ]
+                },                
+            ],
+        },
+    ]  
+        
+        // Object containing the devices and their respective sizes and pill counts
+        // Modify the sizes and pill counts as needed
+        const devices = {
+            "mobile-L": {size: 425, pills: 2},
+            "tablet": {size: 768, pills: 5},
+            "laptop": {size: 1024, pills: 8},
+            "laptop-L": {size: 1440, pills: 8},
+            "laptop-xxL": {size: 1800, pills: 10},
+            "4k": {size: 2560, pills: 8},
+            "8k": {size: 7680, pills: 8}
+        };
+        
+        // Function to get the current width of the device's viewport
+        const getDeviceWidth = () => window.innerWidth;
+        
+        // Function to get the device information based on the current viewport width
+        const deviceInfo = () => {
+            const width = getDeviceWidth();
+            return Object.values(devices).find((value) => {
+                if(width <= value.size){
+                    return value;
+                }
+            });
+        }
 
-            // Function to get the device information based on the current viewport width
-            const deviceInfo = () => {
-                const width = getDeviceWidth();
-                return Object.values(devices).find((value) => {
-                    if (width <= value.size) {
-                        return value;
-                    }
-                });
+        // Function to create HTML for navigation pills
+        const createPills = (person, active) => {
+            // Generate HTML for a single pill item
+            const pillsHtml = `
+                <li class="nav-item pill_one ${active ? 'active': '' }">
+                    ${person.name}
+                </li>
+            `;
+            return pillsHtml;
+        }
+        
+        // Function to create HTML for card content
+        const createCardContent = (person, index) => {
+            const {awardContent} = person; // Destructure awardContent from person object
+            let cards = ''; // Initialize cards HTML string
+        
+            // Loop through each award in awardContent
+            for (const award of awardContent) {
+                const {year, awards} = award; // Destructure year and awards from award object
+        
+                // Generate HTML for a single card
+                cards += `
+                    <div class="card-one abc ${index === 0 ? '' : 'hidden'}" data-id=${`person-${index}`}>
+                        <div class="content-timeline-header">
+                            <div class="Ari-Logo">
+                                <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
+                            </div>
+                            <div class="timeline-year" style="font-weight: 700;">
+                                ${year}
+                            </div>
+                        </div>
+                        <div class="container" id="content-timeline">
+                            <div class="line"></div>
+                            ${ awards.map((award) => {
+                                // Generate HTML for each award in the awards array
+                                return `
+                                    <div class="timeline-container xyz">
+                                        <div class="circle"></div>
+                                        <span class="timeline-text" id="award-name">${award.name}</span>
+                                    </div> `
+                                }).join('') // Join all award HTML strings
+                            }                      
+                        </div>
+                    </div>
+                `;
             }
+            return cards; // Return the generated cards HTML
+        }
+        
+        // Loop through each person in the people array
+        for (let i = 0; i < people.length; i++) {
+            const person = people[i]; // Get the current person object
+        
+            // Select the pills container element
+            const pillsContainer = document.querySelector('#myPills');
+            // Append the generated pill HTML to the pills container
+            pillsContainer.innerHTML += createPills(person, i === 0);
+        
+            // Select the timeline content element
+            const personContent = document.querySelector('#timeline');
+            // Append the generated card content HTML to the timeline content
+            personContent.innerHTML += createCardContent(person, i);
+        }
+        
+        // Select all elements with the class 'nav-item' within the element with id 'myPills'
+        const pills = document.querySelectorAll('#myPills .nav-item');
+        
+        // Get the active pills based on the device's pill count
+        const activePills = Array.from(pills).slice(0, deviceInfo().pills);
+        activePills.forEach((pill) => {
+            // Add the 'layout-active' class to each active pill
+            pill.classList.add('layout-active');
+        });
+        
+        // Create a Set from the active pills
+        const pillsLayout = new Set(activePills);
+        // Get the number of elements in the pillsLayout Set
+        const layoutAmount = pillsLayout.size;
+        
+        // Function to increase or decrease the active pill
+        const increseOrDecrease = (action) => {
+            // Select the currently active element within the element with id 'myPills'
+            const activePill = document.querySelector('#myPills .active');
+            
+            // Get the index of the currently active pill within the pills NodeList
+            const activePillIndex = Array.from(pills).indexOf(activePill);
 
-            // Select all elements with the class 'nav-item' within the element with id 'myPills'
-            const pills = document.querySelectorAll('#myPills .nav-item');
+            const activeCards = document.querySelectorAll(`[data-id="person-${activePillIndex}"]`);
+            
+            // If the action is 'increase'
+            if(action === 'increase'){
+                // Check if the active pill is not the last one
+                if(activePillIndex < pills.length - 1){
+                    // Remove the 'active' class from the current active pill
+                    activePill.classList.remove('active');
+                    activeCards.forEach((card) => {
+                        card.classList.add('hidden');
+                    });
 
-            // Get the active pills based on the device's pill count
-            const activePills = Array.from(pills).slice(0, deviceInfo().pills);
-            activePills.forEach((pill) => {
-                // Add the 'layout-active' class to each active pill
+                    // Add the 'active' class to the next pill
+                    pills[activePillIndex + 1].classList.add('active');
+                    // Add the next pill to the pillsLayout Set
+                    pillsLayout.add(pills[activePillIndex + 1]);
+                    // Select all elements with a data-id attribute matching the pattern "person-{activePillIndex + 1}"
+                    const newActiveCards = document.querySelectorAll(`[data-id="person-${activePillIndex + 1}"]`);
+                    
+                    // Iterate over each selected element
+                    newActiveCards.forEach((card) => {
+                        // Remove the 'hidden' class from the current element
+                        card.classList.remove('hidden');
+                    });
+                }
+            } else {
+                // If the action is not 'increase' (assumed to be 'decrease')
+                // Check if the active pill is not the first one
+                if(activePillIndex > 0){
+                    // Remove the 'active' class from the current active pill
+                    activePill.classList.remove('active');
+                    activeCards.forEach((card) => {
+                        card.classList.add('hidden');
+                    });
+                    // Add the 'active' class to the previous pill
+                    pills[activePillIndex - 1].classList.add('active');
+                    // Add the previous pill to the pillsLayout Set
+                    pillsLayout.add(pills[activePillIndex - 1]);
+                    // Select all elements with a data-id attribute matching the pattern "person-{activePillIndex - 1}"
+                    const newActiveCards = document.querySelectorAll(`[data-id="person-${activePillIndex - 1}"]`);
+                    
+                    // Iterate over each selected element
+                    newActiveCards.forEach((card) => {
+                        // Remove the 'hidden' class from the current element
+                        card.classList.remove('hidden');
+                    });
+                }
+            }
+            
+            // If the number of elements in pillsLayout exceeds the initial layoutAmount
+            if(pillsLayout.size > layoutAmount){
+                // Remove the first element from the pillsLayout Set
+                const [firstPill] = pillsLayout;
+                pillsLayout.delete(firstPill);
+            }
+            
+            // Remove the 'layout-active' class from all pills that are not in the pillsLayout Set
+            pills.forEach((pill) => {
+                if(!pillsLayout.has(pill)){
+                    pill.classList.remove('layout-active');
+                }
+            });
+            
+            // Add the 'layout-active' class to all pills in the pillsLayout Set
+            Array.from(pillsLayout).forEach((pill, index) => {
                 pill.classList.add('layout-active');
             });
+        }
+        
+        // Select the elements with ids 'chevron_left' and 'chevron_right'
+        const backArrow = document.querySelector('#chevron_left');
+        const nextArrow = document.querySelector('#chevron_right');
+        
+        // Add click event listeners to the back and next arrows to call increseOrDecrease with 'decrease' and 'increase' actions respectively
+        backArrow.addEventListener('click', () => increseOrDecrease('decrease'));
+        nextArrow.addEventListener('click', () => increseOrDecrease('increase'));
+        
+    </script>
 
-            // Create a Set from the active pills
-            const pillsLayout = new Set(activePills);
-            // Get the number of elements in the pillsLayout Set
-            const layoutAmount = pillsLayout.size;
 
-            // Function to increase or decrease the active pill
-            const increseOrDecrease = (action) => {
-                // Select the currently active element within the element with id 'myPills'
-                const activePill = document.querySelector('#myPills .active');
 
-                // Get the index of the currently active pill within the pills NodeList
-                const activePillIndex = Array.from(pills).indexOf(activePill);
-
-                // If the action is 'increase'
-                if (action === 'increase') {
-                    // Check if the active pill is not the last one
-                    if (activePillIndex < pills.length - 1) {
-                        // Remove the 'active' class from the current active pill
-                        activePill.classList.remove('active');
-                        // Add the 'active' class to the next pill
-                        pills[activePillIndex + 1].classList.add('active');
-                        // Add the next pill to the pillsLayout Set
-                        pillsLayout.add(pills[activePillIndex + 1]);
-                    }
-                } else {
-                    // If the action is not 'increase' (assumed to be 'decrease')
-                    // Check if the active pill is not the first one
-                    if (activePillIndex > 0) {
-                        // Remove the 'active' class from the current active pill
-                        activePill.classList.remove('active');
-                        // Add the 'active' class to the previous pill
-                        pills[activePillIndex - 1].classList.add('active');
-                        // Add the previous pill to the pillsLayout Set
-                        pillsLayout.add(pills[activePillIndex - 1]);
-                    }
-                }
-
-                // If the number of elements in pillsLayout exceeds the initial layoutAmount
-                if (pillsLayout.size > layoutAmount) {
-                    // Remove the first element from the pillsLayout Set
-                    const [firstPill] = pillsLayout;
-                    pillsLayout.delete(firstPill);
-                }
-
-                // Remove the 'layout-active' class from all pills that are not in the pillsLayout Set
-                pills.forEach((pill) => {
-                    if (!pillsLayout.has(pill)) {
-                        pill.classList.remove('layout-active');
-                    }
-                });
-
-                // Add the 'layout-active' class to all pills in the pillsLayout Set
-                Array.from(pillsLayout).forEach((pill, index) => {
-                    pill.classList.add('layout-active');
-                });
-            }
-
-            // Select the elements with ids 'chevron_left' and 'chevron_right'
-            const backArrow = document.querySelector('#chevron_left');
-            const nextArrow = document.querySelector('#chevron_right');
-
-            // Add click event listeners to the back and next arrows to call increseOrDecrease with 'decrease' and 'increase' actions respectively
-            backArrow.addEventListener('click', () => increseOrDecrease('decrease'));
-            nextArrow.addEventListener('click', () => increseOrDecrease('increase'));
-        </script>
 </body>
 
 </html>
