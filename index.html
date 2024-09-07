@@ -2,17 +2,24 @@
 <html lang="en">
 
 <style>
-    .html {
-        font-family: "Acumin Pro-Bold", Helvetica;
-    }
+    @import url('https://fonts.cdnfonts.com/css/acumin-pro');
+    :root {
+    --container-sm: 25vw;
+    --orange-ari: #E57358;
 
-    .container-sm {
-        justify-content: center;
     }
+    
+    * {
+        font-family: 'Acumin Pro', sans-serif;
+    }
+    
+    .container{
+        width: 100%;
+        margin: 0 auto !important;
+    }    
 
     #navigation {
         display: flex;
-        gap: 8px;
         align-items: center;
         margin-bottom: 24px;
         padding: 0;
@@ -28,10 +35,12 @@
 
 
     .nav-item {
-        padding: 1%;
+        padding: 0 4px;
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: 700;
+        cursor: pointer;
     }
 
     .abc {
@@ -44,19 +53,22 @@
     #content-timeline {
         padding: 0;
         padding-bottom: 27px;
-        margin-left: 50px;
+        margin-left: 60px;
+        margin-right: 60px;
         width: auto;
         margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
     }
 
     .content-timeline-header {
         margin-bottom: 24px;
         margin-left: 35px;
         padding-top: 22px;
-        font-size: 23px;
+        font-size: 28px;
         display: flex;
         align-items: center;
-        gap: 23px;
+        gap: 14px;
     }
 
     .timeline-year {
@@ -64,9 +76,9 @@
     }
 
 
-    .xyz {
+    .timeline-container {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         margin-bottom: 20px;
         font-size: 14px;
     }
@@ -76,6 +88,10 @@
         border-radius: 50%;
         height: 7px;
         width: 7px;
+        min-height: 7px;
+        min-width: 7px;
+        max-width: 7px;
+        max-height: 7px;
         background-color: #E57358;
         z-index: 1;
     }
@@ -85,20 +101,20 @@
     }
 
     .line {
-        height: 203px;
-        width: 2px;
+        height: 300px;
+        width: 1px;
         background-color: #848587;
-        margin-left: 2.5px;
-        margin-top: 10px;
+        margin-left: 3px;
+        margin-top: 10px !important;
         z-index: 0;
         position: absolute;
     }
 
     .active{
-        background-color: #002856;
-        color: white;
+        background-color: white;
+        color: var(--orange-ari);
         border-radius: 17.5px;
-        margin: 3px;
+        margin: 3px !important;
     }
 
     #myPills .nav-item:not(.layout-active) {
@@ -109,6 +125,49 @@
         display: none;
     }   
 
+    .pill-bar{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0
+    }
+
+    .pill-bar>li{
+        min-width: 60px;
+        width: 50%;
+    }
+
+    .size-24{
+        width: 24px;
+        height: 24px;
+    }
+
+    .relative{
+        position: relative;
+    }
+
+    .button-container{
+        margin: 0 20px !important;
+    }
+    
+    .button-show-more{
+        height: 46px;
+        width: 100%;
+        background-color: #000000;
+        color: white;
+        border-radius: 23px;
+        margin-top: 33px !important;
+    }
+
+    #timeline{
+        margin: 0 20px !important;
+    }
+
+    .disabled-arrow{
+        color: black;
+        opacity: 0.2;
+        cursor: unset !important;
+    }
 
     /* Media queries examples */
     @media screen and (max-width: 425px){
@@ -116,233 +175,594 @@
             font-size: 8px;
         }
         .timeline-year{
-            font-size: 70px;
+            font-size: 28px;
+        }
+        #navigation{
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .pill-bar>li{
+            min-width: unset;
+            width: 50%;
+        }
+        .pill-bar>li:nth-child(n+3){
+            display: none;
         }
     }
 
-    /* tablet version */
-    @media screen and (min-width: 426px) and (max-width: 768px){
+    @media screen and (min-width: 576px){        
+        .container{
+            max-width: 540px;
+        }
+        .button-show-more{
+            width: 241px;
+        }
+    }
+    @media screen and (min-width: 768px){
         .nav-item{
             font-size: 10px;
         }
-        .timeline-year{
-            font-size: 70px;
+        
+        .container{
+            max-width: 720px;
+        }
+        .pill-bar>li{
+            min-width: unset;
+            width: 20%;
         }
     }
 
-    @media screen and (min-width: 769px) and (max-width: 4000px){
+    @media screen and (min-width: 992px){
         .nav-item{
-            font-size: 12px;
+            font-size: 10px;
         }
-        .timeline-year{
-            font-size: 70px;
+        
+        .container{
+            max-width: calc(960px - var(--container-sm));
+        }
+        .pill-bar>li{
+            min-width: unset;
+            width: 14.28%;
         }
     }
+    @media screen and (min-width: 1200px){
+        .nav-item{
+            font-size: 10px;
+        }
+        
+        .container{
+            max-width: calc(1140px - var(--container-sm));
+        }
+    }
+    @media screen and (min-width: 1400px){
+        .nav-item{
+            font-size: 10px;
+        }
+        
+        .container{
+            max-width: calc(1320px - var(--container-sm));
+        }
+    }
+
+   
    
 
 
    </style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Team Awards</title>
-
-    <script>
-
-    </script>
-</head>
-
-<body>
-    <div class="container-sm">
-        <h1 style="color: #002856; margin-bottom: 32px; font-weight: 700px; font-size: 40px"> Team Awards </h1>
+    <body>
+    <div class="container">
+        <h1 style="color: #002856; margin-bottom: 32px; font-weight: 700px; font-size: 40px; margin-left: 20px;"> Team Awards </h1>
 
         <!-- Need help here with the javascript. Need to make arrows so that when they are clicked jumps to the next pill -->
-        <div class="container" id="navigation">
-            <div style="flex-grow: 0; display: flex;"><button
-                    style="border: none; background-color: white; display: flex;" id="chevron_left"><i
-                        class="material-icons">chevron_left</i></button></div>
-            <div class="members" style="flex-grow: 1;">
-                <ul class="nav nav-pills nav-fill" id="myPills">
+        <div id="navigation">
+            <div style="flex-grow: 0; display: flex;">
+                <button class="disabled-arrow" style="border: none; background-color: transparent; display: flex; color:#848587; cursor: pointer;" id="chevron_left">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-24">
+                        <path fillRule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clipRule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+            <div style="flex-grow: 1;">
+                <ul class="nav nav-pills nav-fill pill-bar" id="myPills">
                     <!-- Here goes the new dynamically generated pills-->
                 </ul>
             </div>
 
-            <div style="flex-grow: 0; display: flex;"><button
-                    style="border: none; background-color: white; display: flex;" id="chevron_right"><i
-                        class="material-icons">chevron_right</i></button></div>
+            <div style="flex-grow: 0; display: flex;">
+                <button
+                    style="border: none; background-color: transparent; color:#848587; display: flex; cursor: pointer;" id="chevron_right">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-24">
+                        <path fillRule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clipRule="evenodd" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <div class="container" id="timeline" style="overflow: hidden;">
+        <div class="" id="timeline" style="overflow: hidden;">
             <!-- Here goes the new dynamically generated cards-->
         </div>
 
-        <div class="button"> <button
-                style="height: 46px; width: 241px; background-color: #002856; color: white; border-radius: 23px; margin-top: 33px;">
+        <div class="button-container">
+            <button class="button-show-more hidden" id="button-show-more">
                 View
-                More </button>
+                More
+            </button>
         </div>
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+    </div>
 
     <script>
 
-const people = [
+    const people = [
         {
             name: "Eric Bouskila",
             awardContent: [
                 {
-                    year: 2024,
-                    awards: [
-                        {name: 'Forbes’ Top 100 Financial Security Professionals'},
-                        {name: 'Forbes’ Best-in-State Financial Security Professionals'},
-                        {name: '#1 National Life Premium Sales Leadership Award'},
-                        {name: 'Executive Club'},
-                        {name: 'Leader\'s Club'}
-                    ]
-                },
-                {
                     year: 2023,
                     awards: [
-                        {name: 'Forbes’ Top 100 Financial Security Professionals'},
-                        {name: 'Forbes’ Best-in-State Financial Security Professionals'},
-                        {name: '#1 National Life Premium Sales Leadership Award'},
-                        {name: 'Executive Club'},
-                        {name: 'Leader\'s Club'}
+                        "Forbes Best In State Financial Security Professionals",
+                        "Forbes Top 100 Financial Security Professionals",
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
                     ]
                 },
                 {
                     year: 2022,
                     awards: [
-                        {name: '#1 National Life Premium Sales Leadership Award'},
-                        {name: 'Chairman’s Council (Million Dollar Club)'},
-                        {name: 'President’s Council'},
-                        {name: 'Executive Club'},
-                        {name: 'Leader\'s Club'}
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
                     ]
                 },
-            ],
-        },
-        {
-            name: "Marlene Windmiller",
-            awardContent: [
                 {
-                    year: 2024,
+                    year: 2021,
                     awards: [
-                        {name: 'Award for Marlene Windmiller'},                        
-                        {name: 'Award 2 for Marlene Windmiller'},                        
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "Life Quality Business Award"
                     ]
-                },                
+                },
                 {
-                    year: 2023,
+                    year: 2020,
                     awards: [
-                        {name: 'Award for Marlene Windmiller'},                        
-                        {name: 'Award 2 for Marlene Windmiller'},                        
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
                     ]
-                },                
-            ],
-        },
-        {
-            name: "Elizabeth Torres",
-            awardContent: [
+                },
                 {
-                    year: 2024,
+                    year: 2019,
                     awards: [
-                        {name: 'Award for Elizabeth Torres'},                        
-                        {name: 'Award 2 for Elizabeth Torres'},                        
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "Life Quality Business Award"
                     ]
-                },                
+                },
                 {
-                    year: 2023,
+                    year: 2018,
                     awards: [
-                        {name: 'Award for Elizabeth Torres'},                        
-                        {name: 'Award 2 for Elizabeth Torres'},                        
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "Life Quality Business Award"
                     ]
-                },                
-            ],
+                },
+                {
+                    year: 2017,
+                    awards: [
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "Life Quality Business Award"
+                    ]
+                },
+                {
+                    year: 2016,
+                    awards: [
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "Life Quality Business Award"
+                    ]
+                },
+                {
+                    year: 2015,
+                    awards: [
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "Life Quality Business Award"
+                    ]
+                },
+                {
+                    year: 2014,
+                    awards: [
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2013,
+                    awards: [
+                        "#1 National Life Premium Sales Leadership Award",
+                        "Chairman’s Council (Million Dollar Club)",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2012,
+                    awards: [
+                        "#1 National Life Premium Sales Leadership Award",
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2011,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2002,
+                    awards: [
+                        "Key to Miami-Dade County"
+                    ]
+                }
+            ]
         },
         {
             name: "Jordan Mimoun",
             awardContent: [
                 {
-                    year: 2024,
+                    year: 2023,
                     awards: [
-                        {name: 'Award for Jordan Mimoun'},                        
-                        {name: 'Award 2 for Jordan Mimoun'},                        
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
                     ]
-                },                
+                },
+                {
+                    year: 2022,
+                    awards: [
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "Top 10 Life Premiums Award #10"
+                    ]
+                },
+                {
+                    year: 2021,
+                    awards: [
+                        "Alliance Financial Group Life Premium Leader #1",
+                        "New York Life Recognition of $1M+ in Production",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2020,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Alliance Financial Group Life Premium Leader #1",
+                        "Alliance Financial Group New Associate of the Year",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2019,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Ronn Gottfried",
+            awardContent: [
+                {
+                    year: 2022,
+                    awards: [
+                        "Executive Club",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2021,
+                    awards: [
+                        "Alliance Fincancial Group Million Dollar Round Table",
+                        "Alliance Financial Group Life Premium Leader #2",
+                        "Executive Club",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2020,
+                    awards: [
+                        "Alliance Fincancial Group Million Dollar Round Table",
+                        "Alliance Financial Group Life Premium Leader #2",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2019,
+                    awards: [
+                        "Leaders club"
+                    ]
+                },
+                {
+                    year: 2018,
+                    awards: [
+                        "Alliance Fincancial Group Million Dollar Round Table",
+                        "Alliance Financial Group Life Premium Leader #1"
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Peter Harjes",
+            awardContent: [
                 {
                     year: 2023,
                     awards: [
-                        {name: 'Award for Jordan Mimoun'},                        
-                        {name: 'Award 2 for Jordan Mimoun'},                        
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Executive Club",
+                        "Leaders Club"
                     ]
-                },                
-            ],
-        },
-        {
-            name: "peter L. Harjes",
-            awardContent: [
+                },
                 {
-                    year: 2024,
+                    year: 2022,
                     awards: [
-                        {name: 'Award for peter L. Harjes'},                        
-                        {name: 'Award2 for peter L. Harjes'},                        
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Leaders Club"
                     ]
-                },                
-            ],
+                },
+                {
+                    year: 2021,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2020,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table"
+                    ]
+                },
+                {
+                    year: 2019,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Executive Club",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2018,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2017,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table"
+                    ]
+                },
+                {
+                    year: 2016,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2015,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table",
+                        "Leaders Club"
+                    ]
+                },
+                {
+                    year: 2014,
+                    awards: [
+                        "Alliance Financial Group Million Dollar Round Table"
+                    ]
+                }
+            ]
         },
         {
             name: "Ligia Braun",
             awardContent: [
                 {
-                    year: 2024,
+                    year: 2023,
                     awards: [
-                        {name: 'Award for Ligia Braun'},                        
-                        {name: 'Award 3 for Ligia Braun'},                        
+                        "Leader’s Club"
                     ]
-                },                
-            ],
+                },
+                {
+                    year: 2022,
+                    awards: [
+                        "Alliance Financial Group New Associate of the Year",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2021,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Marlene Windmiller",
+            awardContent: [
+                {
+                    year: 2023,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2022,
+                    awards: [
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2021,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2020,
+                    awards: [
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2018,
+                    awards: [
+                        "Top 10 Life Premiums Award #2"
+                    ]
+                },
+                {
+                    year: 2016,
+                    awards: [
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2015,
+                    awards: [
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club",
+                        "New Agent of the Year"
+                    ]
+                }
+            ]
+        },
+        {
+            name: "Elizabeth Torres",
+            awardContent: [
+                {
+                    year: 2023,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2022,
+                    awards: [
+                        "President’s Council",
+                        "Executive Club",
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2021,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2020,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2018,
+                    awards: [
+                        "Leader’s Club",
+                        "Top 10 Life Premiums Award #4"
+                    ]
+                },
+                {
+                    year: 2017,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                },
+                {
+                    year: 2016,
+                    awards: [
+                        "Executive Club",
+                        "Leader’s Club",
+                        "New Agent of the Year"
+                    ]
+                }
+            ]
         },
         {
             name: "Lorenzo Marini",
             awardContent: [
                 {
-                    year: 2024,
+                    year: 2023,
                     awards: [
-                        {name: 'Award for Lorenzo Marini'},
-                        {name: 'Award 4 for Lorenzo Marini'},
-
+                        "Leader’s Club"
                     ]
-                },                
-            ],
-        },
-    ]  
+                },
+                {
+                    year: 2022,
+                    awards: [
+                        "Leader’s Club"
+                    ]
+                }
+            ]
+        }
+    ];
         
-        // Object containing the devices and their respective sizes and pill counts
-        // Modify the sizes and pill counts as needed
         const devices = {
             "mobile-L": {size: 425, pills: 2},
             "tablet": {size: 768, pills: 5},
-            "laptop": {size: 1024, pills: 8},
-            "laptop-L": {size: 1440, pills: 8},
-            "laptop-xxL": {size: 1800, pills: 10},
-            "4k": {size: 2560, pills: 8},
-            "8k": {size: 7680, pills: 8}
+            "laptop": {size: 1024, pills: 7},
+            "laptop-L": {size: 1440, pills: 7},
+            "laptop-xxL": {size: 1800, pills: 7},
+            "4k": {size: 2560, pills: 7},
+            "8k": {size: 7680, pills: 7}
         };
-        
-        // Function to get the current width of the device's viewport
+
         const getDeviceWidth = () => window.innerWidth;
-        
-        // Function to get the device information based on the current viewport width
+
         const deviceInfo = () => {
             const width = getDeviceWidth();
             return Object.values(devices).find((value) => {
@@ -352,9 +772,7 @@ const people = [
             });
         }
 
-        // Function to create HTML for navigation pills
         const createPills = (person, active) => {
-            // Generate HTML for a single pill item
             const pillsHtml = `
                 <li class="nav-item pill_one ${active ? 'active': '' }">
                     ${person.name}
@@ -362,164 +780,198 @@ const people = [
             `;
             return pillsHtml;
         }
-        
-        // Function to create HTML for card content
+
+        const getActiveCards = (index) => {
+            const activePill = document.querySelector('#myPills .active');
+            const activePillIndex = Array.from(pills).indexOf(activePill);
+            const activeCards = document.querySelectorAll(`[data-id="person-${activePillIndex}"]`);
+            return {activeCards, activePillIndex, activePill}
+        }
+
         const createCardContent = (person, index) => {
-            const {awardContent} = person; // Destructure awardContent from person object
-            let cards = ''; // Initialize cards HTML string
-        
-            // Loop through each award in awardContent
+            const {awardContent} = person;
+            let cards = '';
+
             for (const award of awardContent) {
-                const {year, awards} = award; // Destructure year and awards from award object
-        
-                // Generate HTML for a single card
+                const {year, awards} = award;
+
                 cards += `
-                    <div class="card-one abc ${index === 0 ? '' : 'hidden'}" data-id=${`person-${index}`}>
+                    <div class="card-one abc hidden" data-id=${`person-${index}`}>
                         <div class="content-timeline-header">
                             <div class="Ari-Logo">
-                                <img src="ARILOGO.png" alt="Image Description" style="height: 40px; width: 44px;">
+                                <img src="//images.squarespace-cdn.com/content/v1/663e2b02a43cb466ff6b048f/1715350280547-KESLMM3XUZOX7B8Z54R6/ARI-Lion_Orange.png?format=1500w" alt="Image Description" style="height: 65px; width: 65px;">
                             </div>
                             <div class="timeline-year" style="font-weight: 700;">
                                 ${year}
                             </div>
                         </div>
-                        <div class="container" id="content-timeline">
+                        <div class="" id="content-timeline">
                             <div class="line"></div>
                             ${ awards.map((award) => {
-                                // Generate HTML for each award in the awards array
                                 return `
-                                    <div class="timeline-container xyz">
+                                    <div class="timeline-container">
                                         <div class="circle"></div>
-                                        <span class="timeline-text" id="award-name">${award.name}</span>
+                                        <span class="timeline-text" id="award-name">${award}</span>
                                     </div> `
-                                }).join('') // Join all award HTML strings
+                                }).join('')
                             }                      
                         </div>
                     </div>
                 `;
             }
-            return cards; // Return the generated cards HTML
+            return cards;
         }
-        
-        // Loop through each person in the people array
+
+        const backArrow = document.querySelector('#chevron_left');
+        const nextArrow = document.querySelector('#chevron_right');
+        const buttonShowMore = document.querySelector('#button-show-more');
+        const activeCardsLimit = 3;
+        let dynamicIndex = 0;
+
+        backArrow.addEventListener('click', () => increseOrDecrease('decrease'));
+        nextArrow.addEventListener('click', () => increseOrDecrease('increase'));
+        buttonShowMore.addEventListener('click', () => {
+            const newActiveCards= document.querySelectorAll(`[data-id="person-${dynamicIndex}"]`);
+            newActiveCards.forEach((card) => {
+                card.classList.remove('hidden');
+            });
+            buttonShowMore.classList.add('hidden');
+        });
+
         for (let i = 0; i < people.length; i++) {
-            const person = people[i]; // Get the current person object
-        
-            // Select the pills container element
+            const person = people[i];
+
             const pillsContainer = document.querySelector('#myPills');
-            // Append the generated pill HTML to the pills container
             pillsContainer.innerHTML += createPills(person, i === 0);
-        
-            // Select the timeline content element
+
             const personContent = document.querySelector('#timeline');
-            // Append the generated card content HTML to the timeline content
             personContent.innerHTML += createCardContent(person, i);
+            if (i === 0) {
+                const activeCards = document.querySelectorAll(`[data-id="person-${i}"]`);
+                [...activeCards].slice(0, 3).forEach((card) => {
+                    card.classList.remove('hidden');
+                });
+                buttonShowMore.classList.remove('hidden');
+            }
         }
-        
-        // Select all elements with the class 'nav-item' within the element with id 'myPills'
+
         const pills = document.querySelectorAll('#myPills .nav-item');
-        
-        // Get the active pills based on the device's pill count
+
         const activePills = Array.from(pills).slice(0, deviceInfo().pills);
         activePills.forEach((pill) => {
-            // Add the 'layout-active' class to each active pill
             pill.classList.add('layout-active');
-        });
-        
-        // Create a Set from the active pills
-        const pillsLayout = new Set(activePills);
-        // Get the number of elements in the pillsLayout Set
-        const layoutAmount = pillsLayout.size;
-        
-        // Function to increase or decrease the active pill
-        const increseOrDecrease = (action) => {
-            // Select the currently active element within the element with id 'myPills'
-            const activePill = document.querySelector('#myPills .active');
-            
-            // Get the index of the currently active pill within the pills NodeList
-            const activePillIndex = Array.from(pills).indexOf(activePill);
+            pill.addEventListener('click', (e)=>{
+                const {activeCards, activePill} = getActiveCards();
+                activePill.classList.remove('active');
+                activeCards.forEach((card) => {
+                    card.classList.add('hidden');
+                });
+                e.target.classList.add('active');
+                const findIndex = Array.from(pills).indexOf(e.target);
+                dynamicIndex = findIndex;
+                const newActiveCards = document.querySelectorAll(`[data-id="person-${findIndex}"]`);
+                [...newActiveCards].slice(0, 3).forEach((card) => {
+                    card.classList.remove('hidden');
+                });
+                if (newActiveCards.length > activeCardsLimit) {
+                    buttonShowMore.classList.remove('hidden');
+                }else{
+                    buttonShowMore.classList.add('hidden');
+                }
+            })
 
-            const activeCards = document.querySelectorAll(`[data-id="person-${activePillIndex}"]`);
-            
-            // If the action is 'increase'
+        });
+
+        const pillsLayout = new Set(activePills);
+        const layoutAmount = pillsLayout.size;
+
+        /* window.addEventListener('resize', () => {
+            const pills = document.querySelectorAll('#myPills .nav-item');
+            pills.forEach((pill) => {
+                pill.classList.remove('layout-active');
+            });
+            const newActivePills = Array.from(pills).slice(0, deviceInfo().pills);
+            newActivePills.forEach((pill) => {
+                pill.classList.add('layout-active');
+            });
+            pillsLayout.clear();
+            pillsLayout.add(newActivePills);
+        }); */
+
+        const increseOrDecrease = (action) => {
+            const {activeCards, activePillIndex, activePill} = getActiveCards()
+
             if(action === 'increase'){
-                // Check if the active pill is not the last one
                 if(activePillIndex < pills.length - 1){
-                    // Remove the 'active' class from the current active pill
                     activePill.classList.remove('active');
                     activeCards.forEach((card) => {
                         card.classList.add('hidden');
                     });
 
-                    // Add the 'active' class to the next pill
                     pills[activePillIndex + 1].classList.add('active');
-                    // Add the next pill to the pillsLayout Set
                     pillsLayout.add(pills[activePillIndex + 1]);
-                    // Select all elements with a data-id attribute matching the pattern "person-{activePillIndex + 1}"
                     const newActiveCards = document.querySelectorAll(`[data-id="person-${activePillIndex + 1}"]`);
                     
-                    // Iterate over each selected element
-                    newActiveCards.forEach((card) => {
-                        // Remove the 'hidden' class from the current element
+                    [...newActiveCards].slice(0, 3).forEach((card) => {
                         card.classList.remove('hidden');
                     });
+                    if (newActiveCards.length > activeCardsLimit) {
+                        buttonShowMore.classList.remove('hidden');
+                    }else{
+                        buttonShowMore.classList.add('hidden');
+                    }
+                    backArrow.classList.remove('disabled-arrow');
+                    dynamicIndex = activePillIndex + 1
                 }
+                if (activePillIndex === pills.length - 2){
+                    nextArrow.classList.add('disabled-arrow');
+                }                   
             } else {
-                // If the action is not 'increase' (assumed to be 'decrease')
-                // Check if the active pill is not the first one
                 if(activePillIndex > 0){
-                    // Remove the 'active' class from the current active pill
                     activePill.classList.remove('active');
                     activeCards.forEach((card) => {
                         card.classList.add('hidden');
                     });
-                    // Add the 'active' class to the previous pill
+
                     pills[activePillIndex - 1].classList.add('active');
-                    // Add the previous pill to the pillsLayout Set
                     pillsLayout.add(pills[activePillIndex - 1]);
-                    // Select all elements with a data-id attribute matching the pattern "person-{activePillIndex - 1}"
                     const newActiveCards = document.querySelectorAll(`[data-id="person-${activePillIndex - 1}"]`);
                     
-                    // Iterate over each selected element
-                    newActiveCards.forEach((card) => {
-                        // Remove the 'hidden' class from the current element
+                    [...newActiveCards].slice(0, 3).forEach((card) => {
                         card.classList.remove('hidden');
                     });
+                    if (newActiveCards.length > activeCardsLimit) {
+                        buttonShowMore.classList.remove('hidden');
+                    }else{
+                        buttonShowMore.classList.add('hidden');
+                    }
+                    nextArrow.classList.remove('disabled-arrow');
+                    dynamicIndex = activePillIndex - 1
+                }
+                if (activePillIndex === 1){
+                    backArrow.classList.add('disabled-arrow')
                 }
             }
-            
-            // If the number of elements in pillsLayout exceeds the initial layoutAmount
+
             if(pillsLayout.size > layoutAmount){
-                // Remove the first element from the pillsLayout Set
                 const [firstPill] = pillsLayout;
                 pillsLayout.delete(firstPill);
             }
-            
-            // Remove the 'layout-active' class from all pills that are not in the pillsLayout Set
+
             pills.forEach((pill) => {
                 if(!pillsLayout.has(pill)){
                     pill.classList.remove('layout-active');
                 }
             });
-            
-            // Add the 'layout-active' class to all pills in the pillsLayout Set
+
             Array.from(pillsLayout).forEach((pill, index) => {
                 pill.classList.add('layout-active');
             });
         }
-        
-        // Select the elements with ids 'chevron_left' and 'chevron_right'
-        const backArrow = document.querySelector('#chevron_left');
-        const nextArrow = document.querySelector('#chevron_right');
-        
-        // Add click event listeners to the back and next arrows to call increseOrDecrease with 'decrease' and 'increase' actions respectively
-        backArrow.addEventListener('click', () => increseOrDecrease('decrease'));
-        nextArrow.addEventListener('click', () => increseOrDecrease('increase'));
-        
     </script>
 
 
+    </body>
 
-</body>
 
 </html>
