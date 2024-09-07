@@ -885,7 +885,7 @@
         const pillsLayout = new Set(activePills);
         const layoutAmount = pillsLayout.size;
 
-        /* window.addEventListener('resize', () => {
+        window.addEventListener('resize', () => {
             const pills = document.querySelectorAll('#myPills .nav-item');
             pills.forEach((pill) => {
                 pill.classList.remove('layout-active');
@@ -896,7 +896,7 @@
             });
             pillsLayout.clear();
             pillsLayout.add(newActivePills);
-        }); */
+        });
 
         const increseOrDecrease = (action) => {
             const {activeCards, activePillIndex, activePill} = getActiveCards()
